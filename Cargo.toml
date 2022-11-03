@@ -1,0 +1,41 @@
+[package]
+name = "nostr_rust"
+description = "A Rust implementation of the Nostr protocol"
+documentation = "https://docs.rs/nostr_rust"
+readme = "README.md"
+repository = "https://github.com/0xtlt/nostr_rust"
+keywords = ["nostr", "rust", "protocol", "encryption", "decryption"]
+categories = ["api-bindings"]
+license = "MIT"
+authors = ["Thomas Tastet"]
+version = "0.20.3"
+edition = "2021"
+
+[features]
+# Sync by default
+default = ["sync"]
+async = ["futures", "tokio", "futures-util"]
+sync = ["reqwest/blocking"]
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+aes = "0.8"
+base64 = "0.21"
+bech32 = "0.9"
+cbc = { version = "0.1", features = ["alloc"] }
+futures = { version = "0.3", optional = true }
+futures-util = { version = "0.3", optional = true }
+hex = "0.4"
+rand = "0.8"
+reqwest = { version = "0.11", default-features = false, features = ["json", "rustls-tls-webpki-roots"] }
+secp256k1 = { version = "0.26", features = ["bitcoin_hashes", "global-context", "rand-std"] }
+serde = { version = "1", default-features = false, features = ["derive"] }
+serde_derive = "1"
+serde_json = { version = "1", default-features = false, features = ["std"] }
+sha256 = "1"
+structopt = "0.3.26"
+thiserror = "1"
+tokio = { version = "1.24", optional = true, features = ["macros"] }
+tokio-tungstenite = { version = "0.18", default-features = true, features = ["handshake", "rustls-tls-webpki-roots"] }
+tungstenite = { version = "0.18", default-features = false, features = ["handshake", "rustls-tls-webpki-roots"] }
+url = "2.3"
