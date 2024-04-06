@@ -40,7 +40,19 @@ cargo-bench:### 	cargo-bench
 	@cargo bench
 cargo-test:### 	cargo-test
 	@. $(HOME)/.cargo/env
-	@cargo test
+	SECRET_KEY=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 \
+	PUBLIC_KEY=a34b99f22c790c4e36b2b3c2c35a36db06226e41c692fc82b8b56ac1c540c5bd \
+	CONTENT="test content" \
+	RELAY_URL="wss://relay.damus.io" \
+	cargo test
+	SECRET_KEY=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 \
+	PUBLIC_KEY=a34b99f22c790c4e36b2b3c2c35a36db06226e41c692fc82b8b56ac1c540c5bd \
+	CONTENT="test content1"
+	./target/release/nostr
+	SECRET_KEY=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 \
+	PUBLIC_KEY=a34b99f22c790c4e36b2b3c2c35a36db06226e41c692fc82b8b56ac1c540c5bd \
+	CONTENT="test content2"
+	./target/release/nostr
 cargo-report:### 	cargo-report
 	@. $(HOME)/.cargo/env
 	cargo report future-incompatibilities --id 1
