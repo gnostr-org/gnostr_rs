@@ -27,6 +27,9 @@ fn main() {
         "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855".to_string()
         //panic!("SECRET_KEY environment variable not set");
     });
+    let content = env::var("CONTENT").unwrap_or_else(|_| {
+        "content".to_string()
+    });
 
     //println!("{}", secret_key);
 
@@ -95,14 +98,15 @@ fn main() {
     nostr_client
         .lock()
         .unwrap()
-        .publish_text_note(&my_identity, "Hello Nostr! :)", &[], 0)
+        .publish_text_note(&my_identity, &content.to_string(), &[], 0)
         .unwrap();
 
     // Publish a proof of work text note with a difficulty target of 15
+    let pow_content = format!("event with pow:{}",content);
     nostr_client
         .lock()
         .unwrap()
-        .publish_text_note(&my_identity, "Hello Nostr! :)", &[], 15)
+        .publish_text_note(&my_identity,&pow_content, &[], 15)
         .unwrap();
 
     // Wait for the thread to finish
