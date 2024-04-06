@@ -1,7 +1,6 @@
 use std::env;
-use structopt::StructOpt;
 use std::iter::Peekable;
-
+use structopt::StructOpt;
 
 use std::{
     str::FromStr,
@@ -26,7 +25,7 @@ fn handle_message(relay_url: &String, message: &Message) -> Result<(), String> {
 fn main() {
     let secret_key = env::var("SECRET_KEY").unwrap_or_else(|_| {
         "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855".to_string()
-         //panic!("SECRET_KEY environment variable not set");
+        //panic!("SECRET_KEY environment variable not set");
     });
 
     //println!("{}", secret_key);
