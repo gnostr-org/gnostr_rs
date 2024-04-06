@@ -29,7 +29,7 @@ fn main() {
          //panic!("SECRET_KEY environment variable not set");
     });
 
-    println!("{}", secret_key);
+    //println!("{}", secret_key);
 
     let my_identity = Identity::from_str(&secret_key).unwrap();
 
