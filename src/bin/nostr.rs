@@ -6,7 +6,10 @@ use std::{
     thread,
 };
 
-use nostr_rust::{nostr_client::Client, req::ReqFilter, Identity, Message, events::extract_events_ws, utils::parse_content_tags};
+use nostr_rust::{
+    events::extract_events_ws, nostr_client::Client, req::ReqFilter, utils::parse_content_tags,
+    Identity, Message,
+};
 
 fn handle_message(relay_url: &String, message: &Message) -> Result<(), String> {
     println!("Received message from {}: {:?}", relay_url, message);
@@ -18,14 +21,13 @@ fn handle_message(relay_url: &String, message: &Message) -> Result<(), String> {
 }
 
 fn main() {
+    let secret_key = env::var("SECRET_KEY").unwrap_or_else(|_| {
+        panic!("SECRET_KEY environment variable not set");
+    });
 
-//let secret_key = env::var("SECRET_KEY").unwrap_or_else(|_| {
-//    panic!("SECRET_KEY environment variable not set");
-//});
+    println!("{}", secret_key);
 
-    let my_identity =
-        Identity::from_str("e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855")
-            .unwrap();
+    let my_identity = Identity::from_str(&secret_key).unwrap();
 
     let nostr_client = Arc::new(Mutex::new(
         Client::new(vec!["wss://relay.damus.io"]).unwrap(),
@@ -103,4 +105,3 @@ fn main() {
     // Wait for the thread to finish
     handle_thread.join().unwrap();
 }
-

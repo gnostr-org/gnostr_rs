@@ -16,26 +16,25 @@ edition = "2021"
 default = ["sync"]
 async = ["futures", "tokio", "futures-util"]
 sync = ["reqwest/blocking"]
-
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-serde_json = { version = "1", default-features = false, features = ["std"] }
+aes = "0.8"
+base64 = "0.21"
+bech32 = "0.9"
+cbc = { version = "0.1", features = ["alloc"] }
+futures = { version = "0.3", optional = true }
+futures-util = { version = "0.3", optional = true }
+hex = "0.4"
+rand = "0.8"
+reqwest = { version = "0.11", default-features = false, features = ["json", "rustls-tls-webpki-roots"] }
+secp256k1 = { version = "0.26", features = ["bitcoin_hashes", "global-context", "rand-std"] }
 serde = { version = "1", default-features = false, features = ["derive"] }
 serde_derive = "1"
+serde_json = { version = "1", default-features = false, features = ["std"] }
 sha256 = "1"
-hex = "0.4"
-bech32 = "0.9"
-rand = "0.8"
-secp256k1 = { version = "0.26", features = ["bitcoin_hashes", "global-context", "rand-std"] }
-tungstenite = { version = "0.18", default-features = false, features = ["handshake", "rustls-tls-webpki-roots"] }
-tokio-tungstenite = { version = "0.18", default-features = true, features = ["handshake", "rustls-tls-webpki-roots"] }
-url = "2.3"
-base64 = "0.21"
-aes = "0.8"
-cbc = { version = "0.1", features = ["alloc"] }
 thiserror = "1"
-reqwest = { version = "0.11", default-features = false, features = ["json", "rustls-tls-webpki-roots"] }
 tokio = { version = "1.24", optional = true, features = ["macros"] }
-futures-util = { version = "0.3", optional = true }
-futures = { version = "0.3", optional = true }
+tokio-tungstenite = { version = "0.18", default-features = true, features = ["handshake", "rustls-tls-webpki-roots"] }
+tungstenite = { version = "0.18", default-features = false, features = ["handshake", "rustls-tls-webpki-roots"] }
+url = "2.3"
