@@ -33,6 +33,7 @@ serde = { version = "1", default-features = false, features = ["derive"] }
 serde_derive = "1"
 serde_json = { version = "1", default-features = false, features = ["std"] }
 sha256 = "1"
+structopt = "0.3.26"
 thiserror = "1"
 tokio = { version = "1.24", optional = true, features = ["macros"] }
 tokio-tungstenite = { version = "0.18", default-features = true, features = ["handshake", "rustls-tls-webpki-roots"] }

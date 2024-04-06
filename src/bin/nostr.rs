@@ -1,4 +1,7 @@
 use std::env;
+use structopt::StructOpt;
+use std::iter::Peekable;
+
 
 use std::{
     str::FromStr,
