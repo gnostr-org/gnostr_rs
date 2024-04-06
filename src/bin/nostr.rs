@@ -56,9 +56,9 @@ fn main() {
         .unwrap()
         .set_metadata(
             &my_identity,
-            Some("Rust Nostr Client test account"),
-            Some("Hello Nostr! #5"),
-            None,
+            Some("gnostr"),
+            Some("gnostr unsecure account for testing."),
+            Some("https://avatars.githubusercontent.com/u/135379339?s=400&u=e38855df24087feb9a6679c5e3974816e6aa3753&v=4"),
             None,
             0,
         )
