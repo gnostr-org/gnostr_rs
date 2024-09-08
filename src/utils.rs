@@ -4,7 +4,7 @@ use std::time::{SystemTime, UNIX_EPOCH};
 /// Get actual timestamp in seconds
 /// # Example
 /// ```rust
-/// use nostr_rust::utils::get_timestamp;
+/// use gnostr_rs::utils::get_timestamp;
 ///
 /// let timestamp = get_timestamp();
 /// assert!(timestamp > 0);
@@ -18,7 +18,7 @@ pub fn get_timestamp() -> u64 {
 /// Random sha256 hash
 /// # Example
 /// ```rust
-/// use nostr_rust::utils::random_hash;
+/// use gnostr_rs::utils::random_hash;
 /// let hash = random_hash();
 /// assert_eq!(hash.len(), 64);
 /// ```
@@ -42,14 +42,14 @@ pub struct ParsedTagsResult {
 ///
 /// # Arguments
 /// * `text` - Text to parse
-/// * `hashtag_alphabet` - Alphabet to use for hashtag detection, None for no hashtag detection, you can use nostr_rust::DEFAULT_HASHTAG
+/// * `hashtag_alphabet` - Alphabet to use for hashtag detection, None for no hashtag detection, you can use gnostr_rs::DEFAULT_HASHTAG
 /// * `detect_note` - Detect note tag
 /// * `detect_npub` - Detect npub tag
 ///
 /// # Example
 /// ```rust
-/// use nostr_rust::utils::parse_content_tags;
-/// let tags = parse_content_tags("hello #world", vec![], Some(nostr_rust::DEFAULT_HASHTAG), true, true);
+/// use gnostr_rs::utils::parse_content_tags;
+/// let tags = parse_content_tags("hello #world", vec![], Some(gnostr_rs::DEFAULT_HASHTAG), true, true);
 /// assert_eq!(tags.content, "hello #world");
 /// assert_eq!(tags.tags, vec![vec!["t", "world"]]);
 /// ```

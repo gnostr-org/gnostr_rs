@@ -47,9 +47,9 @@ impl Client {
     /// replaceable event range 10000 <= kind < 20000
     /// # Example
     /// ```rust
-    /// use nostr_rust::nostr_client::Client;
-    /// use nostr_rust::Identity;
-    /// use nostr_rust::nips::nip16::NIP16Error;
+    /// use gnostr_rs::nostr_client::Client;
+    /// use gnostr_rs::Identity;
+    /// use gnostr_rs::nips::nip16::NIP16Error;
     /// use std::str::FromStr;
 
     /// let identity = Identity::from_str(env!("SECRET_KEY")).unwrap();
@@ -104,9 +104,9 @@ impl Client {
     /// replaceable event range 10000 <= kind < 20000
     /// # Example
     /// ```rust
-    /// use nostr_rust::nostr_client::Client;
-    /// use nostr_rust::Identity;
-    /// use nostr_rust::nips::nip16::NIP16Error;
+    /// use gnostr_rs::nostr_client::Client;
+    /// use gnostr_rs::Identity;
+    /// use gnostr_rs::nips::nip16::NIP16Error;
     /// use std::str::FromStr;
     ///
     /// #[tokio::test]
@@ -164,9 +164,9 @@ impl Client {
     /// ephemeral event range of 20000 <= kind < 30000
     /// # Example
     /// ```rust
-    /// use nostr_rust::nostr_client::Client;
-    /// use nostr_rust::Identity;
-    /// use nostr_rust::nips::nip16::NIP16Error;
+    /// use gnostr_rs::nostr_client::Client;
+    /// use gnostr_rs::Identity;
+    /// use gnostr_rs::nips::nip16::NIP16Error;
     /// use std::str::FromStr;
 
     /// let identity = Identity::from_str(env!("SECRET_KEY")).unwrap();
@@ -218,9 +218,9 @@ impl Client {
     /// ephemeral event range of 20000 <= kind < 30000
     /// # Example
     /// ```rust
-    /// use nostr_rust::nostr_client::Client;
-    /// use nostr_rust::Identity;
-    /// use nostr_rust::nips::nip16::NIP16Error;
+    /// use gnostr_rs::nostr_client::Client;
+    /// use gnostr_rs::Identity;
+    /// use gnostr_rs::nips::nip16::NIP16Error;
     /// use std::str::FromStr;
     ///
     /// #[tokio::test]

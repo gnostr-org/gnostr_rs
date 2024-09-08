@@ -24,7 +24,7 @@ impl Client {
     ///
     /// # Example
     /// ```rust
-    /// use nostr_rust::{nostr_client::Client, Identity};
+    /// use gnostr_rs::{nostr_client::Client, Identity};
     /// use std::str::FromStr;
     /// let mut client = Client::new(vec![env!("RELAY_URL")]).unwrap();
     /// let identity = Identity::from_str(env!("SECRET_KEY")).unwrap();
@@ -49,7 +49,7 @@ impl Client {
     ///
     /// # Example
     /// ```rust
-    /// use nostr_rust::{nostr_client::Client, Identity};
+    /// use gnostr_rs::{nostr_client::Client, Identity};
     /// use std::str::FromStr;
     ///
     /// #[tokio::test]
@@ -79,7 +79,7 @@ impl Client {
     ///
     /// # Example
     /// ```rust
-    /// use nostr_rust::{nostr_client::Client, Identity};
+    /// use gnostr_rs::{nostr_client::Client, Identity};
     /// use std::str::FromStr;
     /// let mut client = Client::new(vec![env!("RELAY_URL")]).unwrap();
     /// let identity = Identity::from_str(env!("SECRET_KEY")).unwrap();
@@ -115,7 +115,7 @@ impl Client {
     ///
     /// # Example
     /// ```rust
-    /// use nostr_rust::{nostr_client::Client, Identity};
+    /// use gnostr_rs::{nostr_client::Client, Identity};
     /// use std::str::FromStr;
     ///
     /// #[tokio::test]

@@ -56,7 +56,7 @@ impl Client {
     ///
     /// # Example
     /// ```rust
-    /// use nostr_rust::{nostr_client::Client, Identity, nips::nip2::ContactListTag};
+    /// use gnostr_rs::{nostr_client::Client, Identity, nips::nip2::ContactListTag};
     /// use std::str::FromStr;
     /// let mut client = Client::new(vec![env!("RELAY_URL")]).unwrap();
     /// let identity = Identity::from_str(env!("SECRET_KEY")).unwrap();
@@ -96,7 +96,7 @@ impl Client {
     ///
     /// # Example
     /// ```rust
-    /// use nostr_rust::{nostr_client::Client, Identity, nips::nip2::ContactListTag};
+    /// use gnostr_rs::{nostr_client::Client, Identity, nips::nip2::ContactListTag};
     /// use std::str::FromStr;
     ///
     /// #[tokio::test]
@@ -138,7 +138,7 @@ impl Client {
     ///
     /// # Example
     /// ```rust
-    /// use nostr_rust::{nostr_client::Client, Identity, nips::nip2::ContactListTag};
+    /// use gnostr_rs::{nostr_client::Client, Identity, nips::nip2::ContactListTag};
     /// use std::str::FromStr;
     /// let mut client = Client::new(vec![env!("RELAY_URL")]).unwrap();
     /// let contact_list = client.get_contact_list("884704bd421721e292edbff42eb77547fe115c6ff9825b08fc366be4cd69e9f6").unwrap();
@@ -189,7 +189,7 @@ impl Client {
     ///
     /// # Example
     /// ```rust
-    /// use nostr_rust::{nostr_client::Client, Identity, nips::nip2::ContactListTag};
+    /// use gnostr_rs::{nostr_client::Client, Identity, nips::nip2::ContactListTag};
     /// use std::str::FromStr;
     ///
     /// #[tokio::test]

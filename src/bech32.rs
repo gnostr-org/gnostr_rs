@@ -33,7 +33,7 @@ impl From<FromHexError> for Bech32Error {
 ///
 /// # Example
 /// ```rust
-/// use nostr_rust::bech32::{ToBech32Kind, to_bech32};
+/// use gnostr_rs::bech32::{ToBech32Kind, to_bech32};
 /// let bech32 = to_bech32(ToBech32Kind::PublicKey, "3bf0c63fcb93463407af97a5e5ee64fa883d107ef9e558472c4eb9aaaefa459d");
 /// assert_eq!(bech32.unwrap(), "npub180cvv07tjdrrgpa0j7j7tmnyl2yr6yr7l8j4s3evf6u64th6gkwsyjh6w6");
 /// ```
@@ -86,7 +86,7 @@ pub fn to_bech32(kind: ToBech32Kind, key: &str) -> Result<String, Bech32Error> {
 /// (hb for hex and bech32) Transform a string (bech32 or hex) into an hex string
 /// # Example
 /// ```rust
-/// use nostr_rust::bech32::{ToBech32Kind, from_hb_to_hex};
+/// use gnostr_rs::bech32::{ToBech32Kind, from_hb_to_hex};
 /// let hex = from_hb_to_hex(ToBech32Kind::PublicKey, "npub180cvv07tjdrrgpa0j7j7tmnyl2yr6yr7l8j4s3evf6u64th6gkwsyjh6w6");
 /// assert_eq!(hex.unwrap(), "3bf0c63fcb93463407af97a5e5ee64fa883d107ef9e558472c4eb9aaaefa459d");
 /// ```

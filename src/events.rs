@@ -26,11 +26,13 @@ pub struct EventPrepare {
     pub content: String,
 }
 
+/// SECRET_KEY=$(gnostr-sha256) PUBLIC_KEY=a34b99f22c790c4e36b2b3c2c35a36db06226e41c692fc82b8b56ac1c540c5bd RELAY_URL=wss://e.nos.lol cargo t -- --nocapture
+
 impl EventPrepare {
     /// get_content returns the content of the event to be signed
     /// # Example
     /// ```rust
-    /// use nostr_rust::{events::EventPrepare, utils::get_timestamp};
+    /// use gnostr_rs::{events::EventPrepare, utils::get_timestamp};
     ///
     /// let actual_time = get_timestamp();
     ///
@@ -42,7 +44,7 @@ impl EventPrepare {
     ///    content: "content".to_string(),
     /// };
     ///
-    /// assert_eq!(event.get_content(), format!("[0,\"c5aec31e83bdf980939b5ef7c6bcaa2be8bd39d38667da58ba6dba240eb8b69d\",{},0,[],\"content\"]", actual_time));
+    /// assert_eq!(event.get_content(), format!("[0,\"a34b99f22c790c4e36b2b3c2c35a36db06226e41c692fc82b8b56ac1c540c5bd\",{},0,[],\"content\"]", actual_time));
     /// ```
     pub fn get_content(&self) -> String {
         json!([
@@ -59,7 +61,7 @@ impl EventPrepare {
     /// Get the id of the event which is the sha256 hash of the content
     /// # Example
     /// ```rust
-    /// use nostr_rust::{events::EventPrepare};
+    /// use gnostr_rs::{events::EventPrepare};
     ///
     /// let event = EventPrepare {
     ///   pub_key: env!("PUBLIC_KEY").to_string(),
@@ -69,17 +71,18 @@ impl EventPrepare {
     ///   content: "content".to_string(),
     /// };
     ///
-    /// assert_eq!(event.get_content_id(), "4a57aad22fc0fd374e8ceeaaaf8817fa6cb661ca2229c66309d7dba69dfe2359");
+    /// assert_eq!(event.get_content_id(), "c548d9f612d48db85167746647b0d992eb8e20af4d57d25c5ed7cb6e186a3e90");
     /// ```
     pub fn get_content_id(&self) -> String {
         sha256::digest(self.get_content())
     }
 
+    ///
     /// Transform the event to NostrEvent
     /// # Example
     /// ```rust
     /// use std::str::FromStr;
-    /// use nostr_rust::{events::EventPrepare, Identity};
+    /// use gnostr_rs::{events::EventPrepare, Identity};
     ///
     /// let mut event = EventPrepare {
     ///  pub_key: env!("PUBLIC_KEY").to_string(),
@@ -92,13 +95,16 @@ impl EventPrepare {
     /// let identity = Identity::from_str(env!("SECRET_KEY")).unwrap();
     /// // Test to_event without Proof of Work
     /// let nostr_event = event.to_event(&identity, 0);
-    /// assert_eq!(nostr_event.id, "4a57aad22fc0fd374e8ceeaaaf8817fa6cb661ca2229c66309d7dba69dfe2359");
+    /// assert_eq!(nostr_event.id, "c548d9f612d48db85167746647b0d992eb8e20af4d57d25c5ed7cb6e186a3e90");
     /// assert_eq!(nostr_event.content, "content");
     /// assert_eq!(nostr_event.kind, 0);
     /// assert_eq!(nostr_event.tags.len(), 0);
     /// assert_eq!(nostr_event.created_at, 0);
     /// assert_eq!(nostr_event.pub_key, env!("PUBLIC_KEY"));
     /// assert_eq!(nostr_event.sig.len(), 128);
+    ///
+    ///
+    ///
     ///
     /// // Test to_event with Proof of Work
     /// let difficulty = 10;
@@ -178,7 +184,7 @@ impl Event {
     /// get_content returns the content of the event
     /// # Example
     /// ```rust
-    /// use nostr_rust::{events::EventPrepare, utils::get_timestamp, Identity};
+    /// use gnostr_rs::{events::EventPrepare, utils::get_timestamp, Identity};
     /// use std::str::FromStr;
     ///
     /// let actual_time = get_timestamp();
@@ -207,7 +213,7 @@ impl Event {
     /// Get the id of the event which is the sha256 hash of the content
     /// # Example
     /// ```rust
-    /// use nostr_rust::{events::EventPrepare, Identity};
+    /// use gnostr_rs::{events::EventPrepare, Identity};
     /// use std::str::FromStr;
     /// let identity = Identity::from_str(env!("SECRET_KEY")).unwrap();
     /// let event = EventPrepare {
@@ -227,7 +233,7 @@ impl Event {
     /// Get the id of the event which is the sha256 hash of the content
     /// # Example
     /// ```rust
-    /// use nostr_rust::{events::EventPrepare, Identity};
+    /// use gnostr_rs::{events::EventPrepare, Identity};
     /// use std::str::FromStr;
     ///
     /// let identity = Identity::from_str(env!("SECRET_KEY")).unwrap();
@@ -267,7 +273,7 @@ impl fmt::Display for Event {
 ///
 /// # Example
 /// ```rust
-/// use nostr_rust::events::extract_events;
+/// use gnostr_rs::events::extract_events;
 ///
 /// let txt = "[\"EVENT\",\"deb0ab5bd829d1642c926b7897b078d027ca41870d0a499c1fd76e4b5af5ccbd\",{\"id\":\"f0382d932ddc5876bad3f9c5fdb84fb4c2af7ccefebfb491f13fbc47c38f8ae4\",\"kind\":1,\"pubkey\":\"884704bd421721e292edbff42eb77547fe115c6ff9825b08fc366be4cd69e9f6\",\"created_at\":1673131597,\"content\":\"Does anyone know a good crate rust to handle a Lightning node?\",\"tags\":[],\"sig\":\"53a629bae11dace9b487700cbe8e85058a3d7b6989e1e0bdd6eb4fb0201a3779742682f65ca37782c0cb93019a170e0a368bb033dfce1102df71420e24e2b784\"}]";
 ///
@@ -311,7 +317,7 @@ pub fn extract_events(message: &str) -> Vec<Event> {
 ///
 /// # Example
 /// ```rust
-/// use nostr_rust::events::extract_events_ws;
+/// use gnostr_rs::events::extract_events_ws;
 /// use tungstenite::Message;
 ///
 /// let txt = "[\"EVENT\",\"deb0ab5bd829d1642c926b7897b078d027ca41870d0a499c1fd76e4b5af5ccbd\",{\"id\":\"f0382d932ddc5876bad3f9c5fdb84fb4c2af7ccefebfb491f13fbc47c38f8ae4\",\"kind\":1,\"pubkey\":\"884704bd421721e292edbff42eb77547fe115c6ff9825b08fc366be4cd69e9f6\",\"created_at\":1673131597,\"content\":\"Does anyone know a good crate rust to handle a Lightning node?\",\"tags\":[],\"sig\":\"53a629bae11dace9b487700cbe8e85058a3d7b6989e1e0bdd6eb4fb0201a3779742682f65ca37782c0cb93019a170e0a368bb033dfce1102df71420e24e2b784\"}]";

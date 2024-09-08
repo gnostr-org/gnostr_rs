@@ -29,7 +29,7 @@ impl Identity {
     ///
     /// # Example
     /// ```rust
-    /// use nostr_rust::{nostr_client::Client, Identity};
+    /// use gnostr_rs::{nostr_client::Client, Identity};
     /// use std::str::FromStr;
     ///
     ///
@@ -85,7 +85,7 @@ impl FromStr for Identity {
     /// Create an Identity from a secret key as a hex string
     /// # Example
     /// ```
-    /// use nostr_rust::Identity;
+    /// use gnostr_rs::Identity;
     /// use std::str::FromStr;
     ///
     /// // Working format

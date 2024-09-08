@@ -48,7 +48,7 @@ impl Client {
     ///
     /// # Example
     /// ```rust
-    /// use nostr_rust::nostr_client::Client;
+    /// use gnostr_rs::nostr_client::Client;
     /// let client = Client::new(vec![env!("RELAY_URL")]).unwrap();
     /// ```
     pub fn new(default_relays: Vec<&str>) -> Result<Self, ClientError> {
@@ -69,7 +69,7 @@ impl Client {
     ///
     /// # Example
     /// ```rust, async_await
-    /// use nostr_rust::nostr_client::Client;
+    /// use gnostr_rs::nostr_client::Client;
     ///
     /// #[tokio::test]
     /// async fn test_new_client() {
@@ -95,7 +95,7 @@ impl Client {
     /// Add a relay to the client
     /// # Example
     /// ```rust
-    /// use nostr_rust::nostr_client::Client;
+    /// use gnostr_rs::nostr_client::Client;
     /// let mut client = Client::new(vec![]).unwrap();
     /// client.add_relay(env!("RELAY_URL")).unwrap();
     /// ```
@@ -120,7 +120,7 @@ impl Client {
     /// Add a relay to the client
     /// # Example
     /// ```rust
-    /// use nostr_rust::nostr_client::Client;
+    /// use gnostr_rs::nostr_client::Client;
     ///
     /// #[tokio::test]
     /// async fn test_add_relay() {
@@ -149,7 +149,7 @@ impl Client {
     /// Remove a relay from the client
     /// # Example
     /// ```rust
-    /// use nostr_rust::nostr_client::Client;
+    /// use gnostr_rs::nostr_client::Client;
     /// let mut client = Client::new(vec![env!("RELAY_URL")]).unwrap();
     /// client.remove_relay(env!("RELAY_URL")).unwrap();
     /// ```
@@ -175,7 +175,7 @@ impl Client {
     /// Remove a relay from the client
     /// # Example
     /// ```rust
-    /// use nostr_rust::nostr_client::Client;
+    /// use gnostr_rs::nostr_client::Client;
     ///
     /// #[tokio::test]
     /// async fn test_remove_relay() {
@@ -239,7 +239,7 @@ impl Client {
     ///  thread,
     /// };
     /// use tungstenite::Message;
-    /// use nostr_rust::{nostr_client::Client, req::ReqFilter};
+    /// use gnostr_rs::{nostr_client::Client, req::ReqFilter};
     ///
     /// fn handle_message(relay_url: &String, message: &Message) -> Result<(), String> {
     ///   println!("Received message: {:?}", message);
@@ -300,7 +300,7 @@ impl Client {
     ///  thread,
     /// };
     /// use tungstenite::Message;
-    /// use nostr_rust::{nostr_client::Client, req::ReqFilter};
+    /// use gnostr_rs::{nostr_client::Client, req::ReqFilter};
     ///
     /// fn handle_message(relay_url: &String, message: &Message) -> Result<(), String> {
     ///   println!("Received message: {:?}", message);
@@ -360,7 +360,7 @@ impl Client {
     /// Subscribe
     /// # Example
     /// ```rust
-    /// use nostr_rust::{nostr_client::Client, req::ReqFilter};
+    /// use gnostr_rs::{nostr_client::Client, req::ReqFilter};
     /// let mut client = Client::new(vec![env!("RELAY_URL")]).unwrap();
     /// client
     /// .subscribe(vec![ReqFilter { // None means generate a random ID
@@ -393,7 +393,7 @@ impl Client {
     /// Subscribe
     /// # Example
     /// ```rust
-    /// use nostr_rust::{nostr_client::Client, req::ReqFilter};
+    /// use gnostr_rs::{nostr_client::Client, req::ReqFilter};
     ///
     /// #[tokio::test]
     /// async fn test_subscribe() {
@@ -432,7 +432,7 @@ impl Client {
     ///
     /// # Example
     /// ```rust
-    /// use nostr_rust::{nostr_client::Client, req::ReqFilter};
+    /// use gnostr_rs::{nostr_client::Client, req::ReqFilter};
     /// let mut client = Client::new(vec![env!("RELAY_URL")]).unwrap();
     /// client
     /// .subscribe_with_id("my_subscription_id", vec![ReqFilter {
@@ -470,7 +470,7 @@ impl Client {
     ///
     /// # Example
     /// ```rust
-    /// use nostr_rust::{nostr_client::Client, req::ReqFilter};
+    /// use gnostr_rs::{nostr_client::Client, req::ReqFilter};
     ///
     /// #[tokio::test]
     /// async fn test_subscribe_with_id() {
@@ -512,7 +512,7 @@ impl Client {
     /// Unsubscribe
     /// # Example
     /// ```rust
-    /// use nostr_rust::{nostr_client::Client, req::ReqFilter};
+    /// use gnostr_rs::{nostr_client::Client, req::ReqFilter};
     /// let mut client = Client::new(vec![env!("RELAY_URL")]).unwrap();
     /// let subscription_id = client
     /// .subscribe(vec![ReqFilter {
@@ -545,7 +545,7 @@ impl Client {
     /// Unsubscribe
     /// # Example
     /// ```rust
-    /// use nostr_rust::{nostr_client::Client, req::ReqFilter};
+    /// use gnostr_rs::{nostr_client::Client, req::ReqFilter};
     ///
     /// #[tokio::test]
     /// async fn test_unsubscribe() {
@@ -607,7 +607,7 @@ impl Client {
     ///
     /// # Example
     /// ```rust
-    /// use nostr_rust::{nostr_client::Client, req::ReqFilter};
+    /// use gnostr_rs::{nostr_client::Client, req::ReqFilter};
     /// let mut client = Client::new(vec![env!("RELAY_URL")]).unwrap();
     /// let events = client.get_events_of(vec![ReqFilter {
     ///    ids: None,
@@ -681,7 +681,7 @@ impl Client {
     ///
     /// # Example
     /// ```rust
-    /// use nostr_rust::{nostr_client::Client, req::ReqFilter};
+    /// use gnostr_rs::{nostr_client::Client, req::ReqFilter};
     ///
     /// #[tokio::test]
     /// async fn test_get_events_of() {

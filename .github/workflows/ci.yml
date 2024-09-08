@@ -93,6 +93,8 @@ jobs:
           command: test
           args: -- --test-threads=1
 
+      - run: make
+
   docs:
     name: Docs
     runs-on: ubuntu-latest

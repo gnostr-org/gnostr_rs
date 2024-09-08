@@ -1,9 +1,9 @@
 [package]
-name = "nostr_rust"
+name = "gnostr_rs"
 description = "A Rust implementation of the Nostr protocol"
 documentation = "https://docs.rs/nostr_rust"
 readme = "README.md"
-repository = "https://github.com/0xtlt/nostr_rust"
+repository = "https://github.com/gnostr-org/gnostr_rs"
 keywords = ["nostr", "rust", "protocol", "encryption", "decryption"]
 categories = ["api-bindings"]
 license = "MIT"
@@ -36,6 +36,6 @@ aes = "0.8"
 cbc = { version = "0.1", features = ["alloc"] }
 thiserror = "1"
 reqwest = { version = "0.11", default-features = false, features = ["json", "rustls-tls-webpki-roots"] }
-tokio = { version = "1.24", optional = true, features = ["macros"] }
+tokio = { version = "1.24", optional = true, features = ["macros", "rt-multi-thread"] }
 futures-util = { version = "0.3", optional = true }
 futures = { version = "0.3", optional = true }

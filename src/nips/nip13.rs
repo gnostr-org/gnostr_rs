@@ -31,7 +31,7 @@ impl EventPrepare {
     /// Counts leading zero bits to calculate PoW difficulty
     /// # Example
     /// ```rust
-    /// use nostr_rust::{events::EventPrepare};
+    /// use gnostr_rs::{events::EventPrepare};
     /// let hash = hex::decode("000000000e9d97a1ab09fc381030b346cdd7a142ad57e6df0b46dc9bef6c7e2d")
     ///        .unwrap();
     ///
@@ -55,7 +55,7 @@ impl EventPrepare {
     /// # Example
     /// ```rust
     /// use std::str::FromStr;
-    /// use nostr_rust::{events::EventPrepare, Identity};
+    /// use gnostr_rs::{events::EventPrepare, Identity};
     ///
     /// let mut event = EventPrepare {
     ///  pub_key: env!("PUBLIC_KEY").to_string(),

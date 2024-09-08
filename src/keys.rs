@@ -4,7 +4,7 @@ use secp256k1::{PublicKey, SecretKey, SECP256K1};
 /// Get a random secret key
 /// # Example
 /// ```
-/// use nostr_rust::keys::get_random_secret_key;
+/// use gnostr_rs::keys::get_random_secret_key;
 /// let (secret_key, public_key) = get_random_secret_key();
 /// ```
 pub fn get_random_secret_key() -> (SecretKey, PublicKey) {
@@ -14,7 +14,7 @@ pub fn get_random_secret_key() -> (SecretKey, PublicKey) {
 /// Get a secret key from a hex string
 /// # Example
 /// ```rust
-/// use nostr_rust::keys::secret_key_from_str;
+/// use gnostr_rs::keys::secret_key_from_str;
 /// let secret_key = secret_key_from_str(env!("SECRET_KEY"));
 /// assert!(secret_key.is_ok());
 /// ```
@@ -32,7 +32,7 @@ pub fn secret_key_from_str(s: &str) -> Result<SecretKey, String> {
 /// Get a public key from a secret key
 /// # Example
 /// ```rust
-/// use nostr_rust::keys::{secret_key_from_str, get_public_key_from_secret};
+/// use gnostr_rs::keys::{secret_key_from_str, get_public_key_from_secret};
 ///
 /// let secret_key = secret_key_from_str(env!("SECRET_KEY")).unwrap();
 /// let public_key = get_public_key_from_secret(&secret_key);
@@ -44,7 +44,7 @@ pub fn get_public_key_from_secret(secret_key: &SecretKey) -> PublicKey {
 /// Generate a hex secret key and a hex public key from a secret key
 /// # Example
 /// ```rust
-/// use nostr_rust::keys::{secret_key_from_str, get_str_keys_from_secret};
+/// use gnostr_rs::keys::{secret_key_from_str, get_str_keys_from_secret};
 ///
 /// let secret_key = secret_key_from_str(env!("SECRET_KEY")).unwrap();
 /// let (secret_key_str, public_key_str) = get_str_keys_from_secret(&secret_key);
