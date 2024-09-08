@@ -1,6 +1,6 @@
 [package]
 name = "gnostr_rs"
-version = "0.0.3"
+version = "0.0.4"
 description = "git+nostr workflow utility"
 documentation = "https://docs.rs/nostr_rust"
 readme = "README.md"
@@ -22,6 +22,12 @@ sync = ["reqwest/blocking"]
 [[bin]]
 name = "gnostr"
 path = "src/bin/gnostr.rs"
+#required-features = ["test-fakes"]
+doc = true
+
+[[bin]]
+name = "gnostr_dashboard"
+path = "src/bin/gnostr_dashboard.rs"
 #required-features = ["test-fakes"]
 doc = true
 
