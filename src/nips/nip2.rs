@@ -141,7 +141,7 @@ impl Client {
     /// use gnostr_rs::{nostr_client::Client, Identity, nips::nip2::ContactListTag};
     /// use std::str::FromStr;
     /// let mut client = Client::new(vec![env!("RELAY_URL")]).unwrap();
-    /// let contact_list = client.get_contact_list("884704bd421721e292edbff42eb77547fe115c6ff9825b08fc366be4cd69e9f6").unwrap();
+    /// let contact_list = client.get_contact_list(env!("PUBLIC_KEY")).unwrap();
     /// ```
     pub fn get_contact_list(&mut self, pubkey: &str) -> Result<Vec<ContactListTag>, NIP2Error> {
         let hex_id = auto_bech32_to_hex(pubkey)?;
