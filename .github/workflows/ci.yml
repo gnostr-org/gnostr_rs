@@ -111,7 +111,7 @@ jobs:
           command: test
           args: -- --test-threads=1
 
-      - run: make
+      - run: make cargo-test
 
   docs:
     name: Docs
