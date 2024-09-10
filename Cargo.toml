@@ -20,8 +20,8 @@ sync = ["reqwest/blocking"]
 
 
 [[bin]]
-name = "gnostr"
-path = "src/bin/gnostr.rs"
+name = "gnostr_rs"
+path = "src/bin/gnostr_rs.rs"
 #required-features = ["test-fakes"]
 doc = true
 
@@ -53,6 +53,8 @@ reqwest = { version = "0.11", default-features = false, features = ["json", "rus
 tokio = { version = "1.24", optional = true, features = ["macros", "rt-multi-thread"] }
 futures-util = { version = "0.3", optional = true }
 futures = { version = "0.3", optional = true }
+gnostr-types = "0.7.1-unstable"
+gnostr-bins = "0.0.40"
 
 # The profile that 'cargo dist' will build with
 [profile.dist]
