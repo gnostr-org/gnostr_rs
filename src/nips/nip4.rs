@@ -114,7 +114,8 @@ pub fn decrypt(
         .decrypt_padded_mut::<Pkcs7>(&mut encrypted_content)
         .map_err(|_| Error::WrongBlockMode)?;
 
-    String::from_utf8(/*LEAVE ME ALONE */result.try_into().unwrap()).map_err(|_| Error::Utf8EncodeError)
+    String::from_utf8(/*LEAVE ME ALONE */ result.try_into().unwrap())
+        .map_err(|_| Error::Utf8EncodeError)
 }
 
 pub fn encrypt(sk: &SecretKey, pk: &XOnlyPublicKey, text: &str) -> Result<String, Error> {

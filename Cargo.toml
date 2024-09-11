@@ -1,6 +1,6 @@
 [package]
 name = "gnostr_rs"
-version = "0.0.5"
+version = "0.0.6"
 description = "git+nostr workflow utility"
 documentation = "https://docs.rs/nostr_rust"
 readme = "README.md"

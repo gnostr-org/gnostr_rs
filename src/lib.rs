@@ -15,7 +15,6 @@ pub mod websocket;
 pub const DEFAULT_HASHTAG: &str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 pub static DEFAULT_RELAY_URL: &str = "wss://e.nos.lol";
 
-
 pub type Message = tungstenite::Message;
 
 /// Nostr Identity with secret and public keys
