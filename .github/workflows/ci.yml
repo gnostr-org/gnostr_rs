@@ -99,19 +99,19 @@ jobs:
           profile: minimal
           override: false
 
-      - name: Test with async feature enabled
-        uses: actions-rs/cargo@v1
-        with:
-          command: test
-          args: --features async -- --test-threads=1
+      #- name: Test with async feature enabled
+      #  uses: actions-rs/cargo@v1
+      #  with:
+      #    command: test
+      #    args: --features async -- --test-threads=1
 
-      - name: Test with async feature disabled
-        uses: actions-rs/cargo@v1
-        with:
-          command: test
-          args: -- --test-threads=1
+      #- name: Test with async feature disabled
+      #  uses: actions-rs/cargo@v1
+      #  with:
+      #    command: test
+      #    args: -- --test-threads=1
 
-      - run: make cargo-test
+      - run: make all-tests cargo-test
 
   docs:
     name: Docs
