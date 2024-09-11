@@ -71,13 +71,14 @@ jobs:
         name:
           - linux / stable
           - linux / nightly
-          # - macOS / stable
+          #- macOS / stable
+          #- macOS / nightly
 
         include:
           - name: linux / stable
           - name: linux / nightly
-          # - name: macOS / stable
-          #   os: macOS-latest
+          #- name: macOS / stable
+          #- name: macOS / nightly
 
     steps:
       - name: Checkout
