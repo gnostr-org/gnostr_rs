@@ -29,6 +29,15 @@ pub fn random_hash() -> String {
     sha256::digest(&bytes)
 }
 
+/// Get blocks/tip/height
+/// # Example
+/// ```rust
+/// use gnostr_rs::utils::get_timestamp;
+/// ```
+pub fn get_blocks_tip_height() -> String {
+    gnostr_bins::get_blockheight().unwrap()
+}
+
 const NPUB_LEN: usize = 63;
 const NOTE_LEN: usize = 63;
 

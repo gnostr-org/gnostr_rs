@@ -13,6 +13,11 @@ pub mod utils;
 pub mod websocket;
 
 pub const DEFAULT_HASHTAG: &str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+pub const GNOSTR_TAG: &str = "gnostr";
+pub const DEFAULT_SECRET_KEY: &str =
+    "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855";
+pub const DEFAULT_PUBLIC_KEY: &str =
+    "a34b99f22c790c4e36b2b3c2c35a36db06226e41c692fc82b8b56ac1c540c5bd";
 pub static DEFAULT_RELAY_URL: &str = "wss://e.nos.lol";
 
 pub type Message = tungstenite::Message;
@@ -30,10 +35,12 @@ impl Identity {
     ///
     /// # Example
     /// ```rust
+    /// use gnostr_rs::DEFAULT_SECRET_KEY;
+    /// use gnostr_rs::DEFAULT_RELAY_URL;
+    /// use gnostr_rs::GNOSTR_TAG;
     /// use gnostr_rs::{nostr_client::Client, Identity};
+    /// use gnostr_rs::utils::get_blocks_tip_height;
     /// use std::str::FromStr;
-    ///
-    ///
     /// #[cfg(feature = "async")]
     /// async fn test_make_event() {
     ///    let mut client = Client::new(vec![env!("RELAY_URL")]).await.unwrap();
@@ -43,6 +50,14 @@ impl Identity {
     ///    assert_eq!(event.kind, 1);
     ///    assert_eq!(event.content, "Hello Nostr!");
     ///    assert_eq!(event.tags.len(), 0);
+    ///
+    ///    client = Client::new(vec![DEFAULT_RELAY_URL]).await.unwrap();
+    ///    let identity = Identity::from_str(DEFAULT_SECRET_KEY).unwrap();
+    ///    let event = identity.make_event(1, "Hello Nostr!", &[vec![GNOSTR_TAG.to_string()]], 0);
+    ///
+    ///    assert_eq!(event.kind, 1);
+    ///    assert_eq!(event.content, "Hello Nostr!");
+    ///    assert_eq!(event.tags.len(), 1);
     /// }
     ///
     /// #[cfg(not(feature = "async"))]
@@ -50,10 +65,19 @@ impl Identity {
     ///    let mut client = Client::new(vec![env!("RELAY_URL")]).unwrap();
     ///    let identity = Identity::from_str(env!("SECRET_KEY")).unwrap();
     ///    let event = identity.make_event(1, "Hello Nostr!", &vec![], 0);
+    ///    let blockheight = get_blocks_tip_height();
     ///
     ///    assert_eq!(event.kind, 1);
     ///    assert_eq!(event.content, "Hello Nostr!");
     ///    assert_eq!(event.tags.len(), 0);
+    ///
+    ///    client = Client::new(vec![DEFAULT_RELAY_URL]).unwrap();
+    ///    let identity = Identity::from_str(DEFAULT_SECRET_KEY).unwrap();
+    ///    let event = identity.make_event(1, "Hello Nostr!", &[vec![GNOSTR_TAG.to_string()]], 0);
+    ///
+    ///    assert_eq!(event.kind, 1);
+    ///    assert_eq!(event.content, "Hello Nostr!");
+    ///    assert_eq!(event.tags.len(), 1);
     /// }
     ///
     /// #[cfg(feature = "async")]
